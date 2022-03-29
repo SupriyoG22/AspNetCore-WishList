@@ -9,7 +9,7 @@ using WishList.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WishList
+namespace WishList.Controllers
 {
     public class ItemController : Controller
     {
@@ -34,12 +34,12 @@ namespace WishList
         [HttpPost]
         public IActionResult Create(Item item)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Items.Add(item);
                 _context.SaveChanges();
-            }
-            return RedirectToAction("Index");
+            //}
+            return RedirectToAction("Index", "Item");
         }
 
         public IActionResult Delete(int Id)
