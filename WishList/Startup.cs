@@ -37,7 +37,13 @@ namespace WishList
                 app.UseHsts();
             }
             //app.UseRouting();
-            //app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller}/{action}/{id?}",
+            //        defaults: new { controller = "Home", action = "Index" });
+            //});
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

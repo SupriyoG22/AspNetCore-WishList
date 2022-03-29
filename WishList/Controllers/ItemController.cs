@@ -32,25 +32,23 @@ namespace WishList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Item item)
+        public IActionResult Create(WishList.Models.Item item)
         {
-            //if (ModelState.IsValid)
-            //{
-                _context.Items.Add(item);
-                _context.SaveChanges();
-            //}
+            _context.Items.Add(item);
+            _context.SaveChanges();
             return RedirectToAction("Index", "Item");
         }
 
+
         public IActionResult Delete(int Id)
         {
-            var item = _context.Items.FirstOrDefault(e => e.Id == Id);
-            if(item != null)
-            {
-                _context.Items.Remove(item);
+            //var item = _context.Items.FirstOrDefault(e => e.Id == Id);
+            //if(item != null)
+            //{
+                _context.Items.Remove(_context.Items.FirstOrDefault(e => e.Id == Id));
                 _context.SaveChanges();
-            }
-            return RedirectToAction("Index");
+            //}
+            return RedirectToAction("Index", "Item");
         }
     }
 }
