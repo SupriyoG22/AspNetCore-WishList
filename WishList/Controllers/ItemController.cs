@@ -32,12 +32,13 @@ namespace WishList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(WishList.Models.Item item)
+        public IActionResult Create(Item item)
         {
             _context.Items.Add(item);
             _context.SaveChanges();
             return RedirectToAction("Index", "Item");
         }
+
 
 
         public IActionResult Delete(int Id)
